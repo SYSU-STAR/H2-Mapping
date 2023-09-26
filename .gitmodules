@@ -1,0 +1,6 @@
+[submodule "mapping/third_party/tiny-cuda-nn"]
+	path = mapping/third_party/tiny-cuda-nn
+	url = https://github.com/NVlabs/tiny-cuda-nn
+[submodule "mapping/third_party/mapping/third_party/tiny-cuda-nn"]
+	path = mapping/third_party/mapping/third_party/tiny-cuda-nn
+	url = https://github.com/NVlabs/tiny-cuda-nn
