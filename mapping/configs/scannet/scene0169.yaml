@@ -1,0 +1,14 @@
+base_config: configs/scannet/scannet.yaml
+
+exp_name: scannet/scene0169
+
+data_specs:
+  data_path: '../Datasets/scannet_data/scene0169_00'
+  depth_scale: 1000.0
+  crop: 6
+  scale_factor: 0
+  use_gt: True
+  max_depth: 5
+
+decoder_specs:
+  bound: [ [ 9.8,19.8 ],[ 9.0,18.5 ],[ 9.0,13.4 ] ] # nice-slam's bound + [10,10,10]

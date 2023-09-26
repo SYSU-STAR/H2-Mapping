@@ -1,0 +1,15 @@
+<launch>
+    <arg name="config_path" default = "$(find vins_estimator)/../config/tstone/tstone.yaml" />
+	  <arg name="vins_path" default = "$(find vins_estimator)/../config/../" />
+
+    <!-- <node pkg="image_transport" type="republish" name="vins_republish" args="compressed in:=/camera/image_compress1 raw out:=/camera/image_compress1" output="screen" respawn="true"/> -->
+    <node name="republish_cam0" type="republish" pkg="image_transport" output="screen" args="compressed in:=/camera/infra1/image_rect_raw raw out:=/camera/infra1/image_rect_raw" />
+    <node name="imu_synchronizer" pkg="vins_estimator" type="imu_synchronizer" output="screen"/>
+
+    <node name="vins_estimator" pkg="vins_estimator" type="vins_estimator" output="screen">
+       <param name="config_file" type="string" value="$(arg config_path)" />
+       <param name="vins_folder" type="string" value="$(arg vins_path)" />
+    </node>
+
+    <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find vins_estimator)/../config/tstone_vins.rviz" />
+</launch>

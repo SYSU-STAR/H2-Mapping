@@ -1,0 +1,116 @@
+%YAML:1.0
+
+#common parameters
+imu_topic: "/imu/imu"
+# image_topic: "/mvsua_cam/image_compress1"
+image_topic: "/mvsua_cam/image_raw1"
+output_path: "/home/rmua3/vins_output/"
+
+#camera calibration 
+model_type: MEI
+camera_name: camera
+image_width: 1024
+image_height: 1280
+mirror_parameters:
+   xi: 2.02800710134
+distortion_parameters:
+   k1: -0.41674043065419564
+   k2: 0.5610082780240566
+   p1: 0.0015559797560459696
+   p2: 0.019774238468195874
+projection_parameters:
+   gamma1: 1203.1054393401926
+   gamma2: 1201.3890117635513
+   u0: 449.45114269977773
+   v0: 664.6412676039658
+
+# #camera calibration 
+# model_type: MEI
+# camera_name: camera
+# image_width: 1024
+# image_height: 1280
+# mirror_parameters:
+#    xi: 2.155039137224935
+# distortion_parameters:
+#    k1: -0.11756384461063635
+#    k2: 0.7257471655339253
+#    p1: -0.00037095849003272247
+#    p2: 0.00011983078719590205
+# projection_parameters:
+#    gamma1: 1198.239294812769
+#    gamma2: 1194.9694642251766
+#    u0: 472.2554399096207
+#    v0: 658.1604659340651
+
+# Extrinsic parameter between IMU and Camera.
+estimate_extrinsic: 0   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
+                        # 1  Have an initial guess about extrinsic parameters. We will optimize around your initial guess.
+                        # 2  Don't know anything about extrinsic parameters. You don't need to give R,T. We will try to calibrate it. Do some rotation movement at beginning.                        
+#If you choose 0 or 1, you should write down the following matrix.
+#Rotation from camera frame to imu frame, imu^R_cam
+#    data: [0.795, 0.0, 0.006]
+#   #  data: [0.0, -0.795, 0.006]
+
+extrinsicRotation: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [-0.00210498, -0.99998531, -0.00499431,
+          0.99937126, -0.00192687, -0.03540305, 
+          0.0353929,  -0.00506569,  0.99936064]
+#Translation from camera frame to imu frame, imu^T_cam
+extrinsicTranslation: !!opencv-matrix
+   rows: 3
+   cols: 1
+   dt: d
+   data: [0.00737483, 0.00005693, 0.01910708]
+
+#feature traker paprameters
+max_cnt: 150            # max feature number in feature tracking
+min_dist: 60            # min distance between two features 
+freq: 10                # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
+F_threshold: 1.0        # ransac threshold (pixel)
+show_track: 1           # publish tracking image as topic
+equalize: 0             # if image is too dark or light, trun on equalize to find enough features
+fisheye: 0              # if using fisheye, trun on it. A circle mask will be loaded to remove edge noisy points
+use_fast: 1             # if it equals to 1, we extract and track fast feature, otherwise we use GFTT from opencv
+use_rgbd: 0             # if using rgbd camera, turn on it. Depth residuals will be added to sliding window optimization and initialization
+
+#optimization parameters
+max_solver_time: 0.04  # max solver itration time (ms), to guarantee real time
+max_num_iterations: 8   # max solver itrations, to guarantee real time
+keyframe_parallax: 10.0 # keyframe selection threshold (pixel)
+reproj_threshold: 5.0
+
+#imu parameters       The more accurate parameters you provide, the better performance
+acc_n: 0.12          # accelerometer measurement noise standard deviation. #0.2   0.04
+gyr_n: 0.012         # gyroscope measurement noise standard deviation.     #0.05  0.004
+acc_w: 0.0012         # accelerometer bias random work noise standard deviation.  #0.02
+gyr_w: 7.66e-05       # gyroscope bias random work noise standard deviation.     #4.0e-5
+g_norm: 9.81007     # gravity magnitude
+
+# #imu parameters       The more accurate parameters you provide, the better performance
+# acc_n: 0.0415908643815          # accelerometer measurement noise standard deviation. #0.2   0.04
+# gyr_n: 0.00418144711792         # gyroscope measurement noise standard deviation.     #0.05  0.004
+# acc_w: 0.000433         # accelerometer bias random work noise standard deviation.  #0.02
+# gyr_w: 2.66e-05      # gyroscope bias random work noise standard deviation.     #4.0e-5
+# g_norm: 9.81007     # gravity magnitude  Update rate: 500.0
+
+#loop closure parameters
+loop_closure: 1                    # start loop closure
+load_previous_pose_graph: 0        # load and reuse previous pose graph; load from 'pose_graph_save_path'
+fast_relocalization: 0             # useful in real-time and large project
+pose_graph_save_path: "/home/rmua3/vins_output/pose_graph/" # save and load path
+
+#unsynchronization parameters
+estimate_td: 0                      # online estimate time offset between camera and imu
+td: 0.0                             # initial value of time offset. unit: s. readed image clock + td = real image clock (IMU clock)
+
+#rolling shutter parameters
+rolling_shutter: 0                  # 0: global shutter camera, 1: rolling shutter camera
+rolling_shutter_tr: 0               # unit: s. rolling shutter read out time per frame (from data sheet). 
+
+#visualization parameters
+save_image: 1                   # save image in pose graph for visualization prupose; you can close this function by setting 0 
+visualize_imu_forward: 0        # output imu forward propogation to achieve low latency and high frequence results
+visualize_camera_size: 0.4      # size of camera marker in RVIZ

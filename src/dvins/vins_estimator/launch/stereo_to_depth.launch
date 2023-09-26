@@ -1,0 +1,5 @@
+<launch>
+    <param name="config_file" type="string" value="$(find vins_estimator)/../config/euroc/euroc_stereo_config.yaml"/>
+    <node name="stereo_to_depth" pkg="vins_estimator" type="stereo_to_depth" output="screen">
+    </node>
+</launch>

@@ -1,0 +1,13 @@
+base_config: configs/replica/replica.yaml
+
+exp_name: replica/office3
+
+data_specs:
+  data_path: '../Datasets/Replica/office3'
+  max_depth: 10
+  use_gt: True
+
+decoder_specs:
+  # [x_min,x_max],[y_min,y_max],[z_min,z_max]
+  # nice-slam's bound + [10,10,10]
+  bound: [ [ 3.3, 15.1 ],[ 2.5, 14.9 ],[ 7.2, 13.5 ] ] # nice-slam's bound + [10,10,10]

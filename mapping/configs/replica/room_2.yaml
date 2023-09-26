@@ -1,0 +1,13 @@
+base_config: configs/replica/replica.yaml
+
+exp_name: replica/room2
+
+data_specs:
+  data_path: '../Datasets/Replica/room2'
+  max_depth: 10
+  use_gt: True
+
+decoder_specs:
+  # [x_min,x_max],[y_min,y_max],[z_min,z_max]
+  # nice-slam's bound + [10,10,10]
+  bound: [ [ 5.7, 19.5 ],[ 3.3, 15.2 ],[ 3.6, 14.2 ] ] # nice-slam's bound + [10,10,10]
