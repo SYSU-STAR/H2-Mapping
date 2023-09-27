@@ -3,7 +3,8 @@
 ## <div align = "center">Real-time Dense Mapping Using Hierarchical Hybrid Representation</div>
 
 <div align="center">
-<a href="https://arxiv.org/abs/2306.03207"><img src="https://img.shields.io/badge/arXiv-2306.03207-004088.svg"/></a>
+<a href="https://ieeexplore.ieee.org/document/10243098"><img src="https://img.shields.io/badge/Paper-IEEE RAL-004088.svg"/></a>
+<a href="https://arxiv.org/abs/2306.03207"><img src="https://img.shields.io/badge/ArXiv-2306.03207-004088.svg"/></a>
 <a href="https://youtu.be/oR9MlfL86Vw">
 <img alt="Youtube" src="https://img.shields.io/badge/Video-Youtube-red"/>
 </a>
@@ -22,7 +23,7 @@
 </a>
 </div>
 
-#### \[[Paper](https://ieeexplore.ieee.org/document/10243098)\], [[Arxiv](https://arxiv.org/abs/2306.03207)], [[Video: Bilibili](https://www.bilibili.com/video/BV1Ku411W7j2)], [[Video: Youtube](https://youtu.be/oR9MlfL86Vw)]
+
 
 > [Chenxing Jiang*](https://jiang-cx.github.io/), Hanwen Zhang*,  Peize Liu, Zehuan Yu, [Hui Cheng](http://lab.sysu-robotics.com/lab.html), [Boyu Zhou †](http://sysu-star.com/people/), [Shaojie Shen](https://uav.hkust.edu.hk/group/)
 >
