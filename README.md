@@ -9,7 +9,7 @@
 <img alt="Youtube" src="https://img.shields.io/badge/Video-Youtube-red"/>
 </a>
 <a href="https://www.bilibili.com/video/BV1Ku411W7j2">
-<img alt="Bilibili" src="https://img.shields.io/badge/Video-Youtube-blue"/>
+<img alt="Bilibili" src="https://img.shields.io/badge/Video-Bilibili-blue"/>
 </a>
 <a ><img alt="PRs-Welcome" src="https://img.shields.io/badge/PRs-Welcome-red" /></a>
 <a href="https://github.com/SYSU-STAR/H2-Mapping/stargazers">
