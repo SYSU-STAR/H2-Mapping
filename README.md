@@ -86,6 +86,8 @@ cd mapping
 python -W ignore demo/run_mapping.py configs/replica/room_0.yaml
 ```
 
+The final reconstructed mesh will be saved in `mapping/logs/{DATASET}/{DATA SEQUENCE}/{FILE_NAME}/mesh`.
+
 ## Run in ROS (Full SLAM)
 
 1. Install the [Ubuntu](https://cn.ubuntu.com/download), [ROS](http://wiki.ros.org/ROS/Installation), [Ceres](http://ceres-solver.org/), [OpenCV](https://opencv.org/get-started/). If you successfully run  [VINS-Fusion](https://github.com/HKUST-Aerial-Robotics/VINS-Fusion), you will be able to run our tracking code as well.
@@ -250,6 +252,42 @@ python vis/vis_mesh.py \
 $OUTPUT_FOLDER/bak/config.yaml \
 --result_file $OUTPUT_FOLDER \
 -create_mesh 
+```
+
+## FAQ
+
+1. **There is a conflict between OpenCV and cv_bridge during the build process of our tracking module**
+
+This issue is related to the version of cv_bridge. To resolve it, you can follow these steps (using ROS Noetic and OpenCV 4.5.2 as an example):
+
+(1) Remove the previous cv_bridge package for the ROS version:
+
+```bash
+sudo apt-get remove ros-noetic-cv-bridge
+```
+
+(2) Download the new version of [cv_bridge](https://github.com/ros-perception/vision_opencv)
+
+(3) Locate the CMakeLists.txt file of cv_bridge and modify the following line to match the version of OpenCV you have installed
+
+```cmake
+// In CMakeLists.txt of cv_bridge
+find_package(OpenCV 4.5.2 REQUIRED) // Change it to your installed version of OpenCV
+```
+
+(4) Build and install the cv_bridge
+```bash
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+
+(5) Add the cmake path for cv_bridge in the `src/dvins/vins_estimator/CMakeLists.txt` and  `src/dvins/pose_graph/CMakeLists.txt` 
+
+```cmake
+set(cv_bridge_DIR /usr/local/share/cv_bridge/cmake) // At the beginning
 ```
 
 ## Acknowledgement
