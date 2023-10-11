@@ -177,7 +177,9 @@ rosbag play tower_compress.orig.bag
 
    (3) Choose the appropriate value for "num_vertexes" based on the size of your scene. It should be large enough to encompass all the vertices of the octree.
 
-2. To execute the code similar to the provided demo,Evaluation
+2. To execute the code similar to the provided demo.
+
+## Evaluation
 
 ### Reconstruction Error
 
