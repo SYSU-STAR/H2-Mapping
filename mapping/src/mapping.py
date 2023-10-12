@@ -237,7 +237,7 @@ class Mapping:
                 if update_pose is False:
                     tracked_frame.d_pose.requires_grad_(False)
                 if tracked_frame.ref_pose.isinf().any():
-                    return
+                    continue
                 self.mapping_step(frame_id, tracked_frame, update_pose)
 
         print("******* mapping process died *******")
