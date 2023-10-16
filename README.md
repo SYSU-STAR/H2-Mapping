@@ -117,7 +117,7 @@ ros_args:
   intrinsic: [601.347290039062, 601.343017578125, 329.519226074219, 238.586654663086] # K[0, 0], K[1, 1], K[0, 2], K[1, 2]
   color_topic: '/camera/color/image_raw'
   depth_topic: '/camera/aligned_depth_to_color/image_raw'
-  pose_topic: '/vins_estimator/camera_pose'
+  pose_topic: '/vins_estimator/cam_pose'
 ```
 
 4. Replace the filename in `src/mapping.py` with the built library
