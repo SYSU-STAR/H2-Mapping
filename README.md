@@ -171,9 +171,9 @@ rosbag play tower_compress.orig.bag
 
    **Note:**
 
-   (1) Ensure that the value assigned to the "offset" parameter is sufficiently large. This value is utilized to ensure that the coordinates of each point are positive.
+   (1) Ensure that the value assigned to the "offset"  (m) parameter is sufficiently large. This value is utilized to ensure that the coordinates of each point are positive.
 
-   (2) Ensure that the upper bound of the "bound" parameter is suitably large. This parameter defines the boundary of the scene.
+   (2) Ensure that the upper bound of the "bound" (m) parameter is suitably large. This parameter defines the boundary of the scene.
 
    (3) Choose the appropriate value for "num_vertexes" based on the size of your scene. It should be large enough to encompass all the vertices of the octree.
 
