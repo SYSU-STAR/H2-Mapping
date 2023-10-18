@@ -22,7 +22,7 @@ if __name__ == '__main__':
     torch.classes.load_library(
         "third_party/sparse_octree/build/lib.linux-x86_64-cpython-38/svo.cpython-38-x86_64-linux-gnu.so")
 
-    parser = get_parser()
+    parser = get_parser(vis=True)
     parser.add_argument('--result_file', type=str, help='output result file path')
     parser.add_argument('-create_mesh', '--create_mesh',action='store_true')
     parser.add_argument('-save_rendering', '--save_rendering', action='store_true', default=False)
@@ -41,7 +41,10 @@ if __name__ == '__main__':
             training_result = torch.load(data_path)
 
             decoder = get_decoder(args).cuda()
-            data_stream = get_dataset(args)
+            if args.run_ros:
+                data_stream = None
+            else:
+                data_stream = get_dataset(args)
 
             logger = BasicLogger(args, for_eva=True)
             logger.mesh_dir = result_file + "/mesh"

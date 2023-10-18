@@ -3,7 +3,6 @@ base_config: configs/realsense/realsense.yaml
 exp_name: realsense/tower
 
 data_specs:
-  data_path: '../Datasets/realsense/tower'
   max_depth: 3
   use_gt: True # notice
 

@@ -1,6 +1,5 @@
 log_dir: './logs'
 decoder: parallel_hash_net
-dataset: realsense
 update_pose: False
 
 criteria:
