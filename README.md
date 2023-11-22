@@ -233,7 +233,7 @@ $OUTPUT_FOLDER/bak/config.yaml \
 --result_file $OUTPUT_FOLDER
 ```
 
-**Note: If you want to evaluate the rendering error in your custom dataset, you should emulate the structure of `mapping/src/dataset/replica.py` and create a corresponding `MY_DATA.py` file. Additionally, ensure to include a line in the config file specifying the dataset as `dataset: MY_DATA`.**
+**Note: If you want to evaluate the rendering error in your custom dataset, you should emulate the structure of `mapping/src/dataset/replica.py` and create a corresponding `MY_DATA.py` file. Additionally, ensure to include lines in the config file specifying the dataset as `dataset: MY_DATA` and the `data_path: YOUR_DATASET_PATH`.**
 
 ### Visualization
 
