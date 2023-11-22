@@ -233,6 +233,8 @@ $OUTPUT_FOLDER/bak/config.yaml \
 --result_file $OUTPUT_FOLDER
 ```
 
+**Note: If you want to evaluate the rendering error in your custom dataset, you should emulate the structure of `mapping/src/dataset/replica.py` and create a corresponding `MY_DATA.py` file. Additionally, ensure to include a line in the config file specifying the dataset as `dataset: MY_DATA`.**
+
 ### Visualization
 
 Provided that you have configured the saving of intermediate results by adjusting the **"save_ckpt_freq"** parameter in the configuration file, you can employ the code to visualize the ongoing process. This functionality allows you to observe the progression of the intermediate results.
