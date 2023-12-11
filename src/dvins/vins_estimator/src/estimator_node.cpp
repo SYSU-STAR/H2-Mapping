@@ -352,9 +352,27 @@ void rgbCallback(const sensor_msgs::ImageConstPtr &img_msg)
     first_image_flag = true; 
     last_image_time = 0;
     pub_count = 1;
-    std_msgs::Bool restart_flag;
-    restart_flag.data = true;
-    pub_restart.publish(restart_flag);
+
+    m_buf.lock();
+    while(!feature_buf.empty())
+      feature_buf.pop();
+    while(!imu_buf.empty())
+      imu_buf.pop();
+    while(!gray_img_buf.empty())
+      gray_img_buf.pop();
+    while(!depth_img_buf.empty())
+      depth_img_buf.pop();
+    m_buf.unlock();
+
+    m_estimator.lock();
+    estimator.clearState();
+    estimator.setParameter();
+    m_estimator.unlock();
+    current_time = -1;
+    last_imu_t = 0;
+    // std_msgs::Bool restart_flag;
+    // restart_flag.data = true;
+    // pub_restart.publish(restart_flag);
     return;
   }
   last_image_time = img_msg->header.stamp.toSec();
@@ -435,9 +453,28 @@ void rgbdCallback(const sensor_msgs::ImageConstPtr &color_msg, const sensor_msgs
     first_image_flag = true;
     last_image_time = 0;
     pub_count = 1;
-    std_msgs::Bool restart_flag;
-    restart_flag.data = true;
-    pub_restart.publish(restart_flag);
+    // std_msgs::Bool restart_flag;
+    // restart_flag.data = true;
+
+    m_buf.lock();
+    while(!feature_buf.empty())
+      feature_buf.pop();
+    while(!imu_buf.empty())
+      imu_buf.pop();
+    while(!gray_img_buf.empty())
+      gray_img_buf.pop();
+    while(!depth_img_buf.empty())
+      depth_img_buf.pop();
+    m_buf.unlock();
+
+    m_estimator.lock();
+    estimator.clearState();
+    estimator.setParameter();
+    m_estimator.unlock();
+    current_time = -1;
+    last_imu_t = 0;
+
+    // pub_restart.publish(restart_flag);
     return;
   }
   last_image_time = color_msg->header.stamp.toSec();
