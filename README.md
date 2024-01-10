@@ -109,18 +109,7 @@ cd H2-Mapping
 catkin_make
 ```
 
-3. Configure the `ros_args` parameter in the designated configuration file. For reference, consider the example file located at `configs/realsense/realsense.yaml`.
-
-```bash
-# set intrinsic parameters, ROS topics of rgb image, depth image and odometry
-ros_args:
-  intrinsic: [601.347290039062, 601.343017578125, 329.519226074219, 238.586654663086] # K[0, 0], K[1, 1], K[0, 2], K[1, 2]
-  color_topic: '/camera/color/image_raw'
-  depth_topic: '/camera/aligned_depth_to_color/image_raw'
-  pose_topic: '/vins_estimator/cam_pose'
-```
-
-4. Replace the filename in `src/mapping.py` with the built library
+3. Replace the filename in `src/mapping.py` with the built library
 
 ```bash
 torch.classes.load_library("third_party/sparse_octree/build/lib.xxx/svo.xxx.so")
@@ -136,7 +125,20 @@ torch.classes.load_library("third_party/sparse_octree/build/lib.xxx/svo.xxx.so")
    rosbag decompress tower_compress.bag
    ```
 
-3. Run the mapping module. If you wish to preserve the intermediate results for visualization purposes, you have the option to modify the **"save_ckpt_freq"** parameter in the configuration file `configs/realsense/tower`.
+3. Configure the tracking parameter in the designated configuration file. For reference, consider the example file located at `src/dvins/config/uav2022/uav_nerf.yaml`. This configuration file is for the provided `tower_compress.orig.bag`.
+
+4. Configure the `ros_args` parameter in the designated configuration file. For reference, consider the example file located at `configs/realsense/realsense.yaml`. This configuration file is for the provided `tower_compress.orig.bag`.
+
+   ```bash
+   # set intrinsic parameters, ROS topics of rgb image, depth image and odometry
+   ros_args:
+     intrinsic: [601.347290039062, 601.343017578125, 329.519226074219, 238.586654663086] # K[0, 0], K[1, 1], K[0, 2], K[1, 2]
+     color_topic: '/camera/color/image_raw'
+     depth_topic: '/camera/aligned_depth_to_color/image_raw'
+     pose_topic: '/vins_estimator/cam_pose'
+   ```
+
+5. Run the mapping module. If you wish to preserve the intermediate results for visualization purposes, you have the option to modify the **"save_ckpt_freq"** parameter in the configuration file `configs/realsense/tower`.
 
    ```bash
    conda activate h2mapping
@@ -148,26 +150,27 @@ torch.classes.load_library("third_party/sparse_octree/build/lib.xxx/svo.xxx.so")
 
    Once the mapping module is prepared and operational, you will observe a distinctive sign in the console that reads `" ========== MAPPING START ==========="`. This indicator confirms the initiation of the mapping process.
 
-4. Run the Tracking module 
-
    **Note**: The default configuration was utilized in our paper's experiment, conducted on NVIDIA Jetson AGX Orin (32GB RAM). In case you encounter memory limitations on your platform, you can attempt reducing the `insert_ratio` parameter in the `configs/realsense/tower.yaml` file, but it may result in inferior outcomes.
+
+6. Run the Tracking module 
+
 
 ```bash
 cd H2-Mapping
 bash ros_cmd/run_vins_rgbd.sh
 ```
 
-5. Play the ROS Bag
+7. Play the ROS Bag
 
 ```bash
 rosbag play tower_compress.orig.bag
 ```
 
-6. In a separate console, execute the command `rosnode kill -a` to terminate all the modules. Afterwards, the marching cube algorithm will be executed to reconstruct a mesh for visualization.
+8. In a separate console, execute the command `rosnode kill -a` to terminate all the modules. Afterwards, the marching cube algorithm will be executed to reconstruct a mesh for visualization.
 
 ### Use your own RGB-D sequence
 
-1. Write a new configuration file. Please take note of the following:
+1. Modify the mapping configuration file in `mapping/configs/realsense`. Please take note of the following:
 
    **Note:**
 
@@ -179,7 +182,9 @@ rosbag play tower_compress.orig.bag
 
    (4) Ensure that there will be no frame with a minimum depth smaller than max_depth.
 
-2. To execute the code similar to the provided demo.
+2. Modify the tracking configuration file in `src/dvins/config/uav2022/uav_nerf.yaml` to suit your specific device.
+
+3. To execute the code similar to the provided demo.
 
 ## Evaluation
 
