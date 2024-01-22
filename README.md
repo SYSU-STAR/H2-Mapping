@@ -43,7 +43,7 @@ Constructing a high-quality dense map in real-time is essential for robotics, AR
    git clone --recursive https://github.com/SYSU-STAR/H2-Mapping
    ```
 
-2. Create an anaconda environment called `h2mapping`.
+2. Create an anaconda environment called `h2mapping`. Note that installing the 0.17.0 version of open3d may result in errors during reconstruction evaluation. Please install the 0.16.0 version of open3d instead.
 
 ```bash
 cd H2-Mapping/mapping
