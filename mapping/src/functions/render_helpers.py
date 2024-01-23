@@ -515,7 +515,7 @@ def bundle_adjust_frames(
                                 depth_samples_all[:, epoch * N_rays: (epoch + 1) * N_rays].clone()))
 
         if use_adaptive_ending:
-            loss_all += loss
+            loss_all += loss.item()
             loss_mean = loss_all / (epoch + 1)
             if loss_mean < loss:
                 exceed_cnt += 1
