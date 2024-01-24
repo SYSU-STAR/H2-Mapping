@@ -115,6 +115,8 @@ class BasicLogger:
                                            color_np[(gt_depth_np != 0.0) * (depth_np != 0.0)])
             depth_L1_err = np.mean(depth_residual[(gt_depth_np != 0.0) * (depth_np != 0.0)])
             color_np = cv2.cvtColor(color_np, cv2.COLOR_RGB2BGR)
+            color_np[~((gt_depth_np != 0.0) * (depth_np != 0.0))] = 0 # remove invalid depth point for saving
+            depth_np[~((gt_depth_np != 0.0) * (depth_np != 0.0))] = 0 # remove invalid depth point for saving
             cv2.imwrite(osp.join(self.img_dir_rgb_render, "frame{:06d}.jpg".format(ind)), color_np * 255)
             cv2.imwrite(osp.join(self.img_dir_depth_render, "depth{:06d}.png".format(ind)),
                         (depth_np * 1000).astype(np.uint16))  # change to mm
