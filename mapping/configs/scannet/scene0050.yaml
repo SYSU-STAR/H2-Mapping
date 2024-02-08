@@ -1,6 +1,6 @@
 base_config: configs/scannet/scannet.yaml
 
-exp_name: scannet/scene0000
+exp_name: scannet/scene0050
 
 data_specs:
   data_path: '../Datasets/scannet_data/scene0050_00'
