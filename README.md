@@ -43,7 +43,9 @@ Constructing a high-quality dense map in real-time is essential for robotics, AR
    git clone --recursive https://github.com/SYSU-STAR/H2-Mapping
    ```
 
-2. Create an anaconda environment called `h2mapping`. Note that installing the 0.17.0 version of open3d may result in errors during reconstruction evaluation. Please install the 0.16.0 version of open3d instead.
+2. Install the [Pytorch](https://pytorch.org/) manually for your hardware platform.
+
+3. Create an anaconda environment called `h2mapping`. Note that installing the 0.17.0 version of open3d may result in errors during reconstruction evaluation. Please install the 0.16.0 version of open3d instead.
 
 ```bash
 cd H2-Mapping/mapping
@@ -51,7 +53,6 @@ conda env create -f h2mapping.yaml
 bash install.sh
 ```
 
-3. Install the [Pytorch](https://pytorch.org/) manually for your hardware platform.
 3. Install tinycudann and its pytorch extension following https://github.com/NVlabs/tiny-cuda-nn 
 
 ```bash
