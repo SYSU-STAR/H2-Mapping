@@ -1,4 +1,4 @@
-# <div align = "center"><img src="figure/fig.png" alt="image-20200927095842317" width="50%" height="50%" /> H2-Mapping: </div>
+# <div align = "center"><img src="figure/fig.png" alt="image-20200927095842317" width="1%" height="1%" /> H2-Mapping: </div>
 
 ## <div align = "center">Real-time Dense Mapping Using Hierarchical Hybrid Representation</div>
 
