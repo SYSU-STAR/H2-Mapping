@@ -27,7 +27,7 @@
 
 > [Chenxing Jiang*](https://jiang-cx.github.io/), Hanwen Zhang*,  Peize Liu, Zehuan Yu, [Hui Cheng](http://lab.sysu-robotics.com/lab.html), [Boyu Zhou †](http://sysu-star.com/people/), [Shaojie Shen](https://uav.hkust.edu.hk/group/)
 >
-> IEEE Robotics and Automation Letters
+> IEEE Robotics and Automation Letters (**2023 Best Paper Award**)
 
 ## Abstract
 
