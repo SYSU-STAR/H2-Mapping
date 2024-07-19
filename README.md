@@ -4,7 +4,7 @@
 
 <div align="center">
 <a href="https://ieeexplore.ieee.org/document/10243098"><img src="https://img.shields.io/badge/Paper-IEEE RAL-004088.svg"/></a>
-<a href="https://arxiv.org/abs/2306.03207"><img src="https://img.shields.io/badge/ArXiv-2306.03207-004088.svg"/></a>
+<a href="https://arxiv.org/abs/2306.03207"><img src="https://img.shields.io/badge/ArXiv-2306.03207-da282a.svg"/></a>
 <a href="https://youtu.be/oR9MlfL86Vw">
 <img alt="Youtube" src="https://img.shields.io/badge/Video-Youtube-red"/>
 </a>
@@ -22,6 +22,7 @@
 <img alt="Issues" src="https://img.shields.io/github/issues/SYSU-STAR/H2-Mapping?color=0088ff"/>
 </a>
 </div>
+
 
 
 
