@@ -211,7 +211,7 @@ torch.classes.load_library("third_party/sparse_octree/build/lib.xxx/svo.xxx.so")
 ```bash
 # assign any output_folder and gt mesh you like, here is just an example
 cd mapping
-OUTPUT_FOLDER=logs/replica/room0/result
+OUTPUT_FOLDER=logs/replica/room0/FILE_NAME
 GT_MESH=../Datasets/Replica/cull_replica_mesh/room0.ply
 python eval/eval_recon.py \
 $OUTPUT_FOLDER/bak/config.yaml \
@@ -236,7 +236,7 @@ torch.classes.load_library("third_party/sparse_octree/build/lib.xxx/svo.xxx.so")
 ```bash
 # assign any output_folder you like, here is just an example
 cd mapping
-OUTPUT_FOLDER=logs/replica/room0/result
+OUTPUT_FOLDER=logs/replica/room0/FILE_NAME
 python eval/eval_color.py \
 $OUTPUT_FOLDER/bak/config.yaml \
 --result_file $OUTPUT_FOLDER
@@ -262,7 +262,7 @@ torch.classes.load_library("third_party/sparse_octree/build/lib.xxx/svo.xxx.so")
 # assign any output_folder you like, here is just an example
 # create_mesh is only require to set once
 cd mapping
-OUTPUT_FOLDER=logs/replica/room0/result
+OUTPUT_FOLDER=logs/replica/room0/FILE_NAME
 python vis/vis_mesh.py \
 $OUTPUT_FOLDER/bak/config.yaml \
 --result_file $OUTPUT_FOLDER \
