@@ -21,7 +21,6 @@ mapper_specs:
   start_frame: 0
   end_frame: -1
   N_rays_each: 4096 # mapping's sampling ray
-  batch_size: 10240
   num_vertexes: 200000
   inflate_margin_ratio: 0.1
   voxel_size: 0.1
