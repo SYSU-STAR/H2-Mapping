@@ -399,7 +399,6 @@ def bundle_adjust_frames(
         max_voxel_hit=10,
         max_distance=10,
         update_pose=True,
-        batch_size=1024,
         optim=None,
         scaler=None,
         frame_id=None,

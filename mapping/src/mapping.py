@@ -61,7 +61,6 @@ class Mapping:
 
         # required args
         self.use_adaptive_ending = mapper_specs["use_adaptive_ending"]
-        self.batch_size = mapper_specs["batch_size"]
         self.voxel_size = mapper_specs["voxel_size"]
         self.kf_window_size = mapper_specs["kf_window_size"]
         self.num_iterations = mapper_specs["num_iterations"]
@@ -285,7 +284,6 @@ class Mapping:
             self.max_voxel_hit,
             self.max_distance,
             update_pose=update_pose,
-            batch_size=self.batch_size,
             optim=self.optim,
             scaler=self.scaler,
             frame_id=tracked_frame.stamp,
