@@ -36,6 +36,10 @@ Constructing a high-quality dense map in real-time is essential for robotics, AR
 
 [![H2-mapping: real-time dense mapping using hierarchical hybrid representation](https://res.cloudinary.com/marcomontalbano/image/upload/v1695313038/video_to_markdown/images/youtube--oR9MlfL86Vw-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=oR9MlfL86Vw "H2-mapping: real-time dense mapping using hierarchical hybrid representation")
 
+## News
+
+There is a follow-up works: [H3-Mapping: Quasi-Heterogeneous Feature Grids for Real-time Dense Mapping Using Hierarchical Hybrid Representation](https://github.com/SYSU-STAR/H3-Mapping)
+
 ## Installation
 
 1. Begin by cloning this repository and all its submodules using the following command:
